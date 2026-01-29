@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link href="cards.css" rel="stylesheet"/>
+    <script src="cards.js"></script>
+</head>
+<body>
+
+{{$class := .Class}}
+{{range .Spells}}
+<div class="card {{.School}}">
+    <div class="level">
+        <div class="class">{{$class}}</div>
+        <div class="number">{{.Level}}</div>
+    </div>
+
+    <div class="right-column">
+        {{range .Components}} 
+        <div class="component">
+            <img src="img/{{.Image}}.svg">
+            <figcaption>{{.Name}}</figcaption>
+        </div>
+        <div class="clear"></div>
+        {{end}}
+    </div>
+    
+    <h1>{{.Name}}</h1>
+    <div class="main-info-block">
+        <div class="main-info short-descr">
+            {{range .Descriptors}}
+            <img src='img/{{.}}.svg'>
+            {{else}}
+            <img src='img/holosphere.svg'>
+            {{end}}
+            <div>{{.ShortDescr}}</div>
+        </div>
+        {{if .CastTime}}
+        <div class="main-info cast-time">
+            <img src='img/stopwatch.svg'>
+            <div>{{.CastTime}}</div>
+        </div>
+        {{end}}
+        <div class="main-info duration">
+            <img src='img/sands-of-time.svg'>
+            <div>{{.Duration}}</div>
+        </div>
+        {{if .Save}}
+        <div class="main-info saving-throw">
+            <img src='img/saving-throw.svg'>
+            <div>{{.Save}}</div>
+        </div>
+        {{end}}
+    </div>
+    
+    {{if .AreaImg}}
+    <img src="img/{{.AreaImg}}.png" class="area"/>
+    {{end}}
+
+    <h2>Дистанция</h2>
+    <p class="range">{{.Range}}</p>
+
+    {{if .Area}}
+    <h2>Площадь</h2>
+    <p class="area">{{.Area}}</p>
+    {{end}}
+
+    {{if .ComponentsText}}
+    <h2>Ценные компоненты</h2>
+    <p class="components">{{.ComponentsText}}</p>
+    {{end}}
+
+    <h2>Описание</h2>
+    <div class="description">{{.Description}}</div>
+    <span class="end"></span>
+</div>
+{{end}}
+
+</body>
+</html>

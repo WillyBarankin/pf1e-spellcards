@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Narrow', 'Myriad Pro', 'Roboto Condensed', sans-serif;
+    font-size: 2.3mm;
+    font-stretch: condensed;
+    line-height: 1.15;
+}
+
+.clear {
+    clear: both;
+}
+
+.card {
+    width: 252mm;
+    height: 89mm;
+    border: 1px solid black;
+    display: block;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    /* Keep column widths exact by using column-count + fixed card width multiples. */
+    column-count: 4;
+    column-width: auto;
+    column-gap: 0;
+    column-fill: auto;
+    column-rule: 1px solid #aaa;
+    padding-top: 2mm;
+}
+
+@media print
+{
+    @page {
+        size: A4 landscape;
+        margin: 5mm;
+    }
+    .card {
+        page-break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+.card h1 {
+    margin: 0 0 1.5mm 0;
+    padding: 1mm 15mm 0 3mm;
+    font-stretch: condensed;
+    font-size: 4.5mm;
+    font-weight: bold;
+    color: white;
+    background: hsl(0, 0%, 25%);
+}
+
+.card h2 {
+    margin: 1mm 2mm 0 2mm;
+    border-bottom: 1px solid;
+    font-size: 2.7mm;
+    overflow: hidden;
+}
+
+.card .main-info {
+    margin: 0.8mm 18mm 0 2mm;
+    overflow: hidden;
+}
+
+.card .main-info img {
+    height: 5mm;
+    width: 5mm;
+    float: left;
+    background-color: white;
+    clear: left;
+}
+
+.card .main-info div {
+    font-size: 2.7mm;
+    color: white;
+    margin: 0 0 0 5.2mm;
+    padding: 0.9mm 0.5mm 0.3mm 0.5mm;
+    background: hsl(0, 0%, 60%);
+}
+
+.card .main-info span {
+    font-size: 2.7mm;
+    color: white;
+    padding-left: 0.5mm;
+}
+
+.card img.header-icon {
+    height: 5mm;
+    float: left;
+    margin: 1.5mm 0 0 2mm;
+}
+
+.card p {
+    margin: 0.5mm 2mm 0 2mm;
+    color: black;
+}
+
+.card table {
+    border-collapse: collapse;
+    font-size: inherit;
+    margin: 1mm 2mm;
+    width: 94%;
+    table-layout: fixed;
+}
+.card table th,
+.card table td {
+    border: 1px solid #666;
+    padding: 2px;
+    text-align: left;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+.card table th,
+.card table thead td {
+    background: hsl(0, 0%, 90%);
+    font-weight: bold;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.card.tight-description .description,
+.card.tight-description .description p,
+.card.tight-description .description td,
+.card.tight-description .description th {
+    font-size: 2.1mm !important;
+}
+
+.card img.area {
+    height: 18mm;
+    float: right;
+    margin: 0 2mm 1mm 1mm;
+}
+
+.card .level {
+    position: absolute;
+    top: 0;
+    left: 47mm;
+    width: 13mm;
+    padding: 2mm 1mm 2.5mm 1mm;
+    color: white;
+    background: hsl(0, 0%, 10%);
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0.5mm 0.5mm 2mm 0 rgba(0,0,0,0.7);
+}
+
+.card .level .class {}
+
+.card .level .number {
+    font-size: 8mm;
+    font-weight: bold;
+}
+
+.card .right-column {
+    float: right;
+    padding: 17mm 0 1mm 0;
+}
+
+.card .right-column .component {
+    display: inline-block;
+    float: right;
+    margin: 0 5mm 0 0;
+}
+
+.card .right-column .component img {
+    width: 8mm;
+    height: 8mm;
+    vertical-align: top;
+    float: right;
+}
+
+.card .right-column .component figcaption {
+    text-align: center;
+}
+
+.card img.area {
+    clear: right;
+}
+
+
+.abjuration h1             { background-color: hsl(240, 100%, 40%); }
+.abjuration .main-info div { background-color: hsl(240,  10%, 60%); }
+.abjuration .level         { background-color: hsl(240, 100%, 20%); }
+
+.illusion h1             { background-color: hsl(300, 100%, 30%); }
+.illusion .main-info div { background-color: hsl(300,  10%, 60%); }
+.illusion .level         { background-color: hsl(300, 100%, 20%); }
+
+.conjuration h1             { background-color: hsl(36, 100%, 50%); }
+.conjuration .main-info div { background-color: hsl(36,  10%, 60%); }
+.conjuration .level         { background-color: hsl(36, 100%, 20%); }
+
+.enchantment h1             { background-color: hsl(60, 100%, 40%); }
+.enchantment .main-info div { background-color: hsl(60,  10%, 60%); }
+.enchantment .level         { background-color: hsl(60, 100%, 20%); }
+
+.evocation h1             { background-color: hsl(0, 100%, 40%); }
+.evocation .main-info div { background-color: hsl(0,  10%, 60%); }
+.evocation .level         { background-color: hsl(0, 100%, 20%); }
+
+.divination h1             { background-color: #ddd; color: black; }
+.divination .level         { background-color: #bbb; color: black; }
+
+.necromancy h1             { background-color: #222; }
+.necromancy .main-info div { background-color: #888; }
+.necromancy .level         { background-color: #000; }
+
+.transmutation h1             { background-color: hsl(120, 100%, 40%); }
+.transmutation .main-info div { background-color: hsl(120,  10%, 60%); }
+.transmutation .level         { background-color: hsl(120, 100%, 20%); }
